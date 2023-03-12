@@ -2,11 +2,37 @@
 
 App de controle de tarefas Vibbra
 
-## Getting started
+## Escopo
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+1. Trata-se de um projeto interno onde qualquer funcionário da empresa do Sr. Vibbraneo, que gostaria de ter uma lista de itens com sub-listas em um endereço público, que possa ser compartilhado por e-mail para um ou mais usuários e estes, quando receberem o link, possam colaborar.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+2. Tela inicial
+
+>> - Deve ser acessada na URL base do site (raiz) e conter explicações de como criar um nova lista, editar uma já existente e excluir
+
+3. Menu 
+O menu deve conter os seguintes itens:
+
+>> - Sobre: explicar o que faz a ferramenta ToDo List
+
+4. Detalhamento
+
+>> - Ao entrar com uma URL qualquer, a mesma deve ser usada para se referenciar a um novo ToDo List
+>> - Após a criação, o usuário deve ser enviado a tela de edição da ToDo
+>> - Utilizando uma URL já associada a um ToDo, o usuário poderá realizar as seguintes operações em uma lista de itens de texto:
+
+>>> - [ ] Criar um novo item
+>>> - [ ] Editar um item existente
+>>> - [ ] Apagar um item existente
+>>> - [ ] Organizar o item como sub-item de um item existente
+>>> - [ ] Mover um sub-item para fora do item pai, transformando-o em um outro item pai ou um sub-item de outro item;
+
+>> - Ressalvas
+>>> - [ ] O usuário apenas pode excluír a tarefa ou conjunto de tarefas criados por ele
+
+>> - Compartilhamento
+>>> - [ ] Como usuário gostaria de compartilhar a URL do ToDo que estou editando por email para uma ou mais pessoas
+
 
 ## Add your files
 
