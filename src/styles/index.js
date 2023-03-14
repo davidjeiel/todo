@@ -34,6 +34,7 @@ export const Container = styled.div`
     }
 
     .card-todo{
+        max-width: 600px;
         position: relative;
         padding: 60px;
         background: rgba(255,255,255,0.25);
@@ -48,7 +49,7 @@ export const Container = styled.div`
 
 export const Input = styled.input`    
     padding: 8px 24px;
-    width: 224px;
+    width: 80%;
     height: 50px;
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba( 0,0,0, 0.25 );
@@ -100,7 +101,7 @@ export const Spacer = styled.div`
 
 export const Item = styled.li`
     padding: 20px 25px 24px;
-    width: 293px;
+    max-width: 98%;
     background: ${ (props)=> props.checked ? "#172A2B": "#FFF" };
     box-shadow: 0px 4px 4px rgba( 0,0,0, 0.25 );
     border-radius: 10px;    
