@@ -62,7 +62,14 @@ export const Button = styled.button`
     font-size: 16px;
     line-height: 24px;
     color: #fbfbfb;
+    cursor: pointer;
 
+    &:hover{
+        opacity: 0.4;
+    }
+    &:active{
+        opacity: 0.6;
+    }
 `
 
 export const Flex = styled.div`
@@ -76,4 +83,43 @@ export const Flex = styled.div`
 export const Spacer = styled.div`
     width: 100%;
     margin: ${ (props)=>{ props.margin || "30px" } };
+`
+
+export const Item = styled.li`
+    padding: 20px 25px 24px;
+    width: 293px;
+    height: 50px;
+    background: ${ (props)=> props.checked ? "#DA2535": "#FFF" };
+    box-shadow: 0px 4px 4px rgba( 0,0,0, 0.25 );
+    border-radius: 10px;    
+    list-style: none;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    color: ${ (props)=> props.checked ? "#FFF":"#DA2535" };
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    P{
+        text-decoration-line: ${ (props)=> props.checked ? "line-through":"none" }; 
+    }
+
+    i{
+        font-size: 24px;
+        color:  ${ (props)=> props.checked ? "#FFF":"#DA2535" };
+    }
+
+    button{
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.4;
+        }
+        &:active{
+            opacity: 0.6;
+        }
+    }
 `

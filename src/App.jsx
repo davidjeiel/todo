@@ -1,4 +1,4 @@
-import { Button, Container, Input, Flex, Spacer } from "./styles";
+import { Button, Container, Input, Flex, Spacer, Item } from "./styles";
 
 export default function App() {
   return (
@@ -11,6 +11,22 @@ export default function App() {
           +
         </Button>
       </Flex>
+      <Spacer  margin="16px"/>
+      <ul>
+        <Item direction="ow" checked="">    
+          <p>            
+            Texto teste            
+          </p>        
+          <Flex direction="row">
+            <button type="button">
+              <i class='bx bxs-trash'></i>
+            </button>
+            <button>
+              <i class='bx bx-check'></i>            
+            </button>
+          </Flex>
+        </Item>
+      </ul>
     </Container>
   )
 }
