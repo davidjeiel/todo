@@ -5,16 +5,16 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+       
         text-decoration: none;
         outline: none;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', sans-serif;        
     }
 `
 
 export const Container = styled.div`
     width: 100%;
     min-height: 895px;
-    background: rgba( 0,0, 0,0.1);
     box-shadow: 8px 4px 4px rgba(0,0,0,0.25);
     border-radius: 10px;
 
@@ -28,12 +28,25 @@ export const Container = styled.div`
         font-weight: 600;
         font-size: 48px;
         line-height: 72px;
-        color: #da2535
+        color: #fff;
+        text-shadow: #120a31 1px 0 10px;
+        margin-bottom: 10%;
+    }
+
+    .card-todo{
+        position: relative;
+        padding: 60px;
+        background: rgba(255,255,255,0.25);
+        backdrop-filter: blur(15px);
+        border: 1px solid #fff;
+        border-bottom: 1px solid rgba(255,255,255,0.5);
+        border-right: 1px solid rgba(255,255,255,0.5);
+        border-radius: 12px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.7)
     }
 `
 
-export const Input = styled.input`
-    
+export const Input = styled.input`    
     padding: 8px 24px;
     width: 224px;
     height: 50px;
@@ -45,7 +58,7 @@ export const Input = styled.input`
     font-weight: 700;
     font-size: 16px;
     line-weight: 24px;
-    color: #da2535;
+    color: #172A2B;
 `
 
 export const Button = styled.button`
@@ -54,7 +67,7 @@ export const Button = styled.button`
     padding: 20px;
     width: ${ (props)=> props.width || "112px" };
     height: 50px;
-    background: #da2535;
+    background: #172A2B;
     border-radius: 10px;
     border: none;
 
@@ -88,27 +101,33 @@ export const Spacer = styled.div`
 export const Item = styled.li`
     padding: 20px 25px 24px;
     width: 293px;
-    height: 50px;
-    background: ${ (props)=> props.checked ? "#DA2535": "#FFF" };
+    background: ${ (props)=> props.checked ? "#172A2B": "#FFF" };
     box-shadow: 0px 4px 4px rgba( 0,0,0, 0.25 );
     border-radius: 10px;    
     list-style: none;
     margin-top: 3%;
     margin-bottom: 3%;
-    color: ${ (props)=> props.checked ? "#FFF":"#DA2535" };
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
+    color: ${ (props)=> props.checked ? "#FFF":"#172A2B" };   
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
     P{
+        flex-wrap: wrap;
+        font-weight: 270;
+        font-size: 16px;
+        line-height: 24px;
         text-decoration-line: ${ (props)=> props.checked ? "line-through":"none" }; 
+        width: 75%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
     }
 
     i{
         font-size: 24px;
-        color:  ${ (props)=> props.checked ? "#FFF":"#DA2535" };
+        display: flex;
+        color:  ${ (props)=> props.checked ? "#FFF":"#172A2B" };
     }
 
     button{
@@ -122,4 +141,13 @@ export const Item = styled.li`
             opacity: 0.6;
         }
     }
+`
+
+export const BG = styled.div`
+    background-image: url("img/working.jpg");
+    height: 100%;
+    width: 100%;  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover
 `
