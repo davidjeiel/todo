@@ -1,8 +1,14 @@
 import { Button, Container, Input, Flex, Spacer, Item, BG } from "../../styles";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthGoogleContext } from "../../contexts/authGoogleContext";
+
 
 export default function TaskList()
 {
+    const user = useContext(AuthGoogleContext);
+    const userLogado = JSON.parse( user );
+    console.debug(userLogado);
+
     const [ task, setTask ] = useState('');
     const [ taskList, setTaskList ] = useState([]);
     

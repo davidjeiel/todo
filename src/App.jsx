@@ -1,13 +1,9 @@
 import React from "react";
-import RoutesApp from "./routes";
-import { AuthProvider } from "./contexts/auth";
+import RoutesApp from "./routes/routes";
 import { GlobalStyle } from "./styles";
 
-const App = () => (
-  <AuthProvider>
+const App = () => (  
     <RoutesApp />
-    <GlobalStyle />
-  </AuthProvider>
 );
 
 export default App;
