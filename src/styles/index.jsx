@@ -31,6 +31,13 @@ export const Container = styled.div`
         color: #fff;
         text-shadow: #120a31 1px 0 10px;
         margin-bottom: 10%;
+        text-align: center;
+    }
+
+    .texto{
+        color: #fff;
+        text-align: center;
+        padding-top: 3%;
     }
 
     .card-todo{
@@ -43,13 +50,21 @@ export const Container = styled.div`
         border-bottom: 1px solid rgba(255,255,255,0.5);
         border-right: 1px solid rgba(255,255,255,0.5);
         border-radius: 12px;
-        box-shadow: 0 25px 50px rgba(0,0,0,0.7)
+        box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+
+        label{
+            color: #fff;
+            text-align: center;            
+        }
+
     }
 `
 
 export const Input = styled.input`    
     padding: 8px 24px;
-    width: 80%;
+    margin-top: ${ (props)=>props.marginTop !== ""? props.marginTop : "3%" };
+    margin-bottom: ${ (props)=>props.marginBottom !== ""? props.marginBottom : "3%" };
+    width: ${ (props)=>props.width === ""? "80%" : props.width };
     height: 50px;
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba( 0,0,0, 0.25 );
@@ -66,8 +81,10 @@ export const Button = styled.button`
     display: flex;
     align-items: center;
     padding: 20px;
-    width: ${ (props)=> props.width || "112px" };
-    height: 50px;
+    width:  ${ (props)=> props.width || "112px" };
+    height: ${ (props)=> props.height || "50px" };
+    padding-top: ${ (props)=>props.marginTop !== ""? props.marginTop : "3%" };
+    padding-bottom: ${ (props)=>props.marginBottom !== ""? props.marginBottom : "3%" };
     background: #172A2B;
     border-radius: 10px;
     border: none;
