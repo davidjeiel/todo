@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey:            "AIzaSyDxGGGHsH3JGtNYFJeQBLl87SZkGid2CeU",
-  authDomain:        "todo-vibbra.firebaseapp.com",
-  projectId:         "todo-vibbra",
-  storageBucket:     "todo-vibbra.appspot.com",
+  apiKey: "AIzaSyDxGGGHsH3JGtNYFJeQBLl87SZkGid2CeU",
+  authDomain: "todo-vibbra.firebaseapp.com",
+  projectId: "todo-vibbra",
+  storageBucket: "todo-vibbra.appspot.com",
   messagingSenderId: "361178752387",
-  appId:             "1:361178752387:web:e2aef460fb96fc3b9482b6",
-  measurementId:     "G-2R222ZRKZK"
+  appId: "1:361178752387:web:e2aef460fb96fc3b9482b6",
+  measurementId: "G-2R222ZRKZK"
 };
 
 export const app  = initializeApp(firebaseConfig);
