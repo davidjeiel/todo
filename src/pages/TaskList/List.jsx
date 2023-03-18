@@ -11,6 +11,7 @@ import {
     ButtonGroup
 } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Item from "./item";
 
 export const List = (params)=>
 {
@@ -72,7 +73,7 @@ export const List = (params)=>
                     }>
                     <Card.Header>
                         <Row>
-                            <Col md="1" className="pr-2" >
+                            <Col md="2" className="pr-2" >
                                 <DropdownButton 
                                     size="sm" 
                                     drop="up" 
@@ -124,10 +125,11 @@ export const List = (params)=>
                                     </Dropdown.Item>
                                 </DropdownButton>       
                             </Col>
-                            <Col md="8">
+                            <Col md="7">
                                 <h5 className="text-center l-2">{ params.name }</h5>        
                             </Col>
-                            <Col md="2">
+                            
+                            <Col md="2" className="ml-2 mr-2" style={{marginLeft: "1%"}}>
                                 <ButtonGroup>
                                     <BtnBoot 
                                         type="button"
@@ -166,7 +168,7 @@ export const List = (params)=>
                                     className="opacity-50"
                                 >
                                     <Row>
-                                        teste
+                                        <Item name="David"/>
                                     </Row>
                                 </ListGroup.Item>
                             </ListGroup>

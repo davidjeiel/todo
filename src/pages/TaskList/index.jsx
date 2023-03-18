@@ -2,10 +2,8 @@ import {
     Button, 
     Container as ContainerStyled, 
     Input, 
-    Flex, 
-    Spacer, 
-    Item, 
-    BG 
+    Flex,
+    BlurCard
 } from "../../styles";
 import { useState, useContext } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,15 +14,6 @@ export default function TaskList()
 
     const [ task,     setTask     ] = useState('');
     const [ taskList, setTaskList ] = useState([]);
-
-    const list = taskList.map( t=>(
-        <List  
-            id={ t.id } 
-            key={ t.id } 
-            name={ t.name } 
-            checked={ t.checked }
-        />
-    ));
 
     const addTask = ()=>{
         if(!task) { 
@@ -48,11 +37,10 @@ export default function TaskList()
     }
 
     return (
-        <BG>
-            <ContainerStyled>
-                <div className="card-listas">
-                    <h1 className="title">SUAS LISTAS</h1>
-                    <Flex direction="row" justify="space-between">
+        <BlurCard width="100%">  
+            <div className="box">
+                <h1 className="title">LISTS</h1>
+                <Flex direction="row" justify="space-between">
                     <Input 
                         value={task}
                         width="100%"
@@ -66,10 +54,22 @@ export default function TaskList()
                     >
                         +
                     </Button>
-                    </Flex>
-                    <ul>{ list }</ul>
-                </div>  
-            </ContainerStyled>
-        </BG>
+                </Flex>
+                <div>
+                    { 
+                        taskList.map( t=>(
+                            <List  
+                                id={ t.id } 
+                                key={ t.id } 
+                                name={ t.name } 
+                                checked={ t.checked }
+                                setTaskList={setTaskList}
+                                taskList={taskList}
+                            />
+                        )) 
+                    }
+                </div>    
+            </div>      
+        </BlurCard>                
     )
 }

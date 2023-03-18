@@ -13,34 +13,31 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const Container = styled.div`
-    width: 100%;
+    
     min-height: 895px;
     box-shadow: 8px 4px 4px rgba(0,0,0,0.25);
     border-radius: 10px;
-
     display: flex;
     align-items: center;
-
-    .title{
-        font-weight: 600;
-        font-size: 38px;
-        line-height: 72px;
-        color: #fff;
-        text-shadow: #120a31 1px 0 10px;
-        margin-bottom: 10%;
-        text-align: center;
-    }
+  
 
     .texto{
         color: #fff;
         text-align: center;
         padding-top: 3%;
-    }
+    }   
+`
 
-    .card-listas{
-        width: 45%;
+export const BlurCard = styled.div`
+{
+
+    .box{
+        width: ${ (props)=>props.width !== ""? props.width : "3%" };
+        padding: 15px;
+        margin: 2%;
         position: relative;
-        padding: 2%;
+        margin-left: 7%;
+        margin-right: 7%;
         background: rgba(255,255,255,0.25);
         backdrop-filter: blur(15px);
         border: 1px solid #fff;
@@ -49,12 +46,17 @@ export const Container = styled.div`
         border-radius: 12px;
         box-shadow: 0 25px 50px rgba(0,0,0,0.7);
 
-        label{
+        .title{
+            font-weight: 600;
+            font-size: 38px;
+            line-height: 72px;
             color: #fff;
-            text-align: center;            
+            text-shadow: #120a31 1px 0 10px;
+            margin-bottom: 10%;
+            text-align: center;
         }
-
     }
+}
 `
 
 export const Input = styled.input`    
@@ -83,7 +85,7 @@ export const Button = styled.button`
     width:  ${ (props)=> props.width || "112px" };
     height: ${ (props)=> props.height || "50px" };
     padding-top: ${ (props)=>props.marginTop !== ""? props.marginTop : "3%" };
-    padding-bottom: ${ (props)=>props.marginBottom !== ""? props.marginBottom : "3%" };
+    padding-bottom: ${ (props)=>props.marginBottom !== ""? props.marginBottom : "4%" };
     background: #172A2B;
     border-radius: 10px;
     border: none;
@@ -167,10 +169,13 @@ export const Item = styled.li`
 `
 
 export const BG = styled.div`
-    background-image: url("img/working.jpg");
-    height: 100%;
-    width: 100%;  
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover
+    background-color: #1a1a1a;
+    width: 100%;
+    height: 3000px;
+`
+
+export const OcultInput = styled.input`
+    border: none;
+    background: none;
+    
 `
