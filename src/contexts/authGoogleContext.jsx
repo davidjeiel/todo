@@ -1,10 +1,10 @@
 import { useState, createContext, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { app } from "../service/firebase";
-import { Navigate } from "react-router-dom";
 const provider = new GoogleAuthProvider();
 
-export const AuthGoogleContext = createContext({});
+export const authGoogleContext = createContext({});
 
 export const AuthGoogleProvider = ({ children }) => {
   const auth = getAuth(app);
@@ -12,7 +12,7 @@ export const AuthGoogleProvider = ({ children }) => {
 
   useEffect(() => {
     const loadStorageData = () => {
-      const storageUser = sessionStorage.getItem("@AuthFirebase:user");
+      const storageUser  = sessionStorage.getItem("@AuthFirebase:user");
       const storageToken = sessionStorage.getItem("@AuthFirebase:token");
       if (storageToken && storageUser) {
         setUser(storageUser);
@@ -21,7 +21,7 @@ export const AuthGoogleProvider = ({ children }) => {
     loadStorageData();
   }, []);
 
-  function signInGoogle() {
+  const signInGoogle = async () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -32,14 +32,14 @@ export const AuthGoogleProvider = ({ children }) => {
         sessionStorage.setItem("@AuthFirebase:user", JSON.stringify(user));
       })
       .catch((error) => {
-        const errorCode = error.code;
+        const errorCode    = error.code;
         const errorMessage = error.message;
-        const email = error.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        const email        = error.email;
+        const credential   = GoogleAuthProvider.credentialFromError(error);
       });
   }
 
-  function signOut() {
+  const signOut = ()=> {
     sessionStorage.clear();
     setUser(null);
     return <Navigate to="/" />;

@@ -22,11 +22,13 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
 
-    padding: 12px 25px;
+    padding-top: 12%;
+    padding-left:15%;
+    padding-right:17%;
 
     .title{
         font-weight: 600;
-        font-size: 48px;
+        font-size: 38px;
         line-height: 72px;
         color: #fff;
         text-shadow: #120a31 1px 0 10px;
@@ -41,9 +43,9 @@ export const Container = styled.div`
     }
 
     .card-todo{
-        max-width: 600px;
+        max-width: 45%;
         position: relative;
-        padding: 60px;
+        padding: 2%;
         background: rgba(255,255,255,0.25);
         backdrop-filter: blur(15px);
         border: 1px solid #fff;
@@ -75,6 +77,7 @@ export const Input = styled.input`
     font-size: 16px;
     line-weight: 24px;
     color: #172A2B;
+    margin-bottom: 5%;
 `
 
 export const Button = styled.button`
@@ -88,7 +91,7 @@ export const Button = styled.button`
     background: #172A2B;
     border-radius: 10px;
     border: none;
-
+    text-align:  ${ (props)=>props.textAlign !== "" ? props.textAlign: ''};
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;

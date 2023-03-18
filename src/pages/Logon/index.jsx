@@ -1,28 +1,20 @@
 import { BG, Container, Spacer, Button, Input } from "../../styles";
 import { useState } from "react";
 import { auth } from "../../config/FirebaseConfig";
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, Navigate } from "react-router-dom";
 
 
-export default function Login()
+export default function Logon()
 {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [
-      signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
       user,
       loading,
       error,
-    ] = useSignInWithEmailAndPassword(auth);
-  
-    const handleLogin = async ()=>{
-        await signInWithEmailAndPassword(email, password);
-    }
-
-    const handleLogon = ()=>{
-        <Navigate to="/Logon"/>;
-    }
+    ] = useCreateUserWithEmailAndPassword(auth);
 
     if (error) {
       return (
@@ -37,7 +29,7 @@ export default function Login()
     if (user) {
       return (
         <div>
-          <p>Signed In User: {user.email}</p>
+          <p>Registered User: {user.user.email}</p>
         </div>
       );
     }
@@ -47,7 +39,7 @@ export default function Login()
         <BG>
             <Container>
                 <div className="card-todo">
-                    <h2 className="title">LOGIN</h2>
+                    <h2 className="title">CADASTRO</h2>
                     <Spacer  margin="150px"/>
                     <Input 
                         type="email"
@@ -65,10 +57,10 @@ export default function Login()
                     />
                     <Button 
                         width="100%" 
-                        onClick={()=>handleLogin()}
+                        onClick={()=>createUserWithEmailAndPassword(email, password)}
+                        textAlign="center"
                     >
-                        ACESSAR
-
+                        CADASTRAR
                     </Button> 
                     {/* <Button 
                         width="100%" 
@@ -76,9 +68,9 @@ export default function Login()
                     >
                         ACESSAR COM GOOGLE
 
-                    </Button>  */}                                        
-                    <Link to="/Logon">
-                        Novo cadastro
+                    </Button>  */}                                                            
+                    <Link to="/Login">
+                        Acesse sua conta
                     </Link>
                 </div>                
             </Container>            
