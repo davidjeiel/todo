@@ -1,38 +1,30 @@
-import { Button, Container, Input, Flex, Spacer, Item, BG } from "../../styles";
+import { 
+    Button, 
+    Container as ContainerStyled, 
+    Input, 
+    Flex, 
+    Spacer, 
+    Item, 
+    BG 
+} from "../../styles";
 import { useState, useContext } from "react";
-import { authGoogleContext } from "../../contexts/authGoogleContext";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { List } from "./List";
 
 export default function TaskList()
 {
-    // const user = useContext(authGoogleContext);
-    // const userLogado = JSON.parse( user );
-    // console.debug(userLogado);
 
-    const [ task, setTask ] = useState('');
+    const [ task,     setTask     ] = useState('');
     const [ taskList, setTaskList ] = useState([]);
-    
-    const lista = taskList.map( t=>(<Item key={t.id} direction="ow" checked={t.checked}>    
-                                        <p>{ t.name }</p>        
-                                        <Flex direction="row">
-                                        <button type="button" onClick={
-                                            ()=>removeTask( t.id )
-                                        }>
-                                            <i className='bx bxs-trash'></i>
-                                        </button>
-                                        <button 
-                                            type="button" 
-                                            onClick={ ()=>{ toggleChecked(t.id, t.checked) } }>
-                                            <i className='bx bx-check'></i>            
-                                        </button>
-                                        <button 
-                                            type="button" 
-                                            onClick={ ()=>{ share(t.name) } }>
-                                            <i className='bx bxs-share-alt'></i>          
-                                        </button>
-                                        </Flex>
-                                    </Item>));
 
+    const list = taskList.map( t=>(
+        <List  
+            id={ t.id } 
+            key={ t.id } 
+            name={ t.name } 
+            checked={ t.checked }
+        />
+    ));
 
     const addTask = ()=>{
         if(!task) { 
@@ -49,30 +41,6 @@ export default function TaskList()
         };   
     }
 
-    const removeTask = (id)=>{
-        const newList = taskList.filter((task => task.id !== id));
-        setTaskList(newList);
-    }
-
-    const toggleChecked = (id, checked)=>{
-        const index = taskList.findIndex((task => task.id === id));
-        const  newList = taskList;
-        newList[index].checked = !checked;
-        setTaskList([...newList]);
-    }
-
-    const share = async (name)=>{
-        if (navigator.share !== undefined) {
-        await navigator.share({
-            title: 'compartilhamento de tarefa',
-            text: name,
-            url: 'https://davidjeiel.com',
-        })
-        .then(() => console.log('Compartilhado com sucesso'))
-        .catch((error) => console.log('Erro de compartilhamento', error));
-        }
-    }
-
     const enterClick = (key)=>{
         if(key === "Enter"){
             addTask();
@@ -81,10 +49,9 @@ export default function TaskList()
 
     return (
         <BG>
-            <Container>
-                <div className="card-todo">
-                    <h1 className="title">LISTA DE TAREFAS</h1>
-                    <Spacer  margin="150px"/>
+            <ContainerStyled>
+                <div className="card-listas">
+                    <h1 className="title">SUAS LISTAS</h1>
                     <Flex direction="row" justify="space-between">
                     <Input 
                         value={task}
@@ -93,14 +60,16 @@ export default function TaskList()
                         placeholder="Digite sua tarefa"
                         onKeyDown={()=>enterClick(event.key)}
                     />
-                    <Button width="50px" onClick={ ()=>{addTask()} }>
+                    <Button 
+                        width="50px" 
+                        onClick={ ()=>{addTask()} }
+                    >
                         +
                     </Button>
                     </Flex>
-                    <Spacer  margin="16px"/>
-                    <ul>{ lista }</ul>
+                    <ul>{ list }</ul>
                 </div>  
-            </Container>
+            </ContainerStyled>
         </BG>
     )
 }

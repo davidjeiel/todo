@@ -1,5 +1,5 @@
 import { BG, Container, Spacer, Button, Input } from "../../styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../../config/FirebaseConfig";
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, Navigate } from "react-router-dom";
@@ -20,6 +20,23 @@ export default function Login()
         await signInWithEmailAndPassword(email, password);
     }
 
+    const loadStorageData = () => {
+        const storageUser  = sessionStorage.getItem("@AuthFirebase:email");
+        const storageToken = sessionStorage.getItem("@AuthFirebase:pass");
+        if (storageToken && storageUser) {
+            setUser(storageUser);
+        }
+    };
+
+    useEffect(()=>{
+        loadStorageData();
+    }, [])
+
+    useEffect(()=>{
+        sessionStorage.setItem("@AuthFirebase:pass",  password);
+        sessionStorage.setItem("@AuthFirebase:email", JSON.stringify(email));
+    }, [ signInWithEmailAndPassword ])
+
     const handleLogon = ()=>{
         <Navigate to="/Logon"/>;
     }
@@ -36,9 +53,7 @@ export default function Login()
     }
     if (user) {
       return (
-        <div>
-          <p>Signed In User: {user.email}</p>
-        </div>
+        <Navigate to="T" />
       );
     }
 

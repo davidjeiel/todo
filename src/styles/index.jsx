@@ -19,12 +19,7 @@ export const Container = styled.div`
     border-radius: 10px;
 
     display: flex;
-    flex-direction: column;
     align-items: center;
-
-    padding-top: 12%;
-    padding-left:15%;
-    padding-right:17%;
 
     .title{
         font-weight: 600;
@@ -42,8 +37,8 @@ export const Container = styled.div`
         padding-top: 3%;
     }
 
-    .card-todo{
-        max-width: 45%;
+    .card-listas{
+        width: 45%;
         position: relative;
         padding: 2%;
         background: rgba(255,255,255,0.25);
@@ -84,6 +79,7 @@ export const Button = styled.button`
     display: flex;
     align-items: center;
     padding: 20px;
+    margin-bottom:10px;
     width:  ${ (props)=> props.width || "112px" };
     height: ${ (props)=> props.height || "50px" };
     padding-top: ${ (props)=>props.marginTop !== ""? props.marginTop : "3%" };
@@ -161,6 +157,12 @@ export const Item = styled.li`
         &:active{
             opacity: 0.6;
         }
+    }
+
+    .task{
+        padding: 5%;
+        margin:  5%;
+        background: red;
     }
 `
 

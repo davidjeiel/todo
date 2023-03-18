@@ -3,21 +3,25 @@ import Logon from '../pages/Logon';
 import TaskList from '../pages/TaskList'
 import { Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import { PrivateRoutes } from '.';
+// import { PrivateRoutes } from './PrivateRoute';
+// import { authMailPassProvider as Provider } from '../contexts/authMailPassContext';
 
 export const RoutesApp = () => {
   return (
-    <BrowserRouter>
-      <Fragment>
-        <Routes>
-          <Route path="/"      element={ <Login /> }/>
-          <Route path="/Login" element={ <Login /> }/>
-          <Route path="/Logon" element={ <Logon /> }/>
-          <Route path="/home"  element={<Login />} >
-            <Route element={ <TaskList /> }  />
-          </Route>
-        </Routes>
-      </Fragment>
-    </BrowserRouter>
+    
+      <BrowserRouter>
+        <Fragment>
+          <Routes>
+            <Route path="/"      element={ <Login /> }/>
+            <Route path="/Login" element={ <Login /> }/>
+            <Route path="/Logon" element={ <Logon /> }/>
+            <Route path="/Tarefas" element={ <TaskList /> }/>
+            {/* <Route element={<PrivateRoutes /> }>
+              <Route path="/home" element={<TaskList />} />
+            </Route>             */}
+          </Routes>
+        </Fragment>
+      </BrowserRouter>
+    
   );
 };
