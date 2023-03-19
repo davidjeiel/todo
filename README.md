@@ -39,4 +39,6 @@ O projeto usou o máximo de recursos para focar apenas na experiência do usuár
 
 O tempo necessário para a execução de um atendimento deste porte pode variar conforme o desenvovimento e solicitações de ajuste mas, costumeiramente pode levar de 20 a 30 dias úteis, portanto a entrega foi dentro da limitação do tempo determinado para a entrega.
 
+## Fluxo
+![Imagem]('https://git.vibbra.com.br/david-1678578253/todo-list/-/raw/main/todo.png')
 
