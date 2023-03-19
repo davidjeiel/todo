@@ -45,3 +45,20 @@ O tempo necessário para a execução de um atendimento deste porte pode variar 
 ## ScreenShot
 <img src='https://git.vibbra.com.br/david-1678578253/todo-list/-/raw/main/todo.png' />
 
+## Dependências 
+ - axios: **1.3.4**
+ - bootstrap: **5.2.3**
+ - boxicons: **2.1.4**
+ - dotenv: **16.0.3**
+ - firebase: **9.17.2**
+ - react: **18.2.0**
+ - react-bootstrap: **2.7.2**
+ - react-dom: **18.2.0**
+ - react-firebase-hooks: **5.1.1**
+ - react-native-async-storage: **0.0.1**
+ - react-router-dom: **6.9.0**
+ - react-scripts: **5.0.1**
+ - styled-components: **5.3**
+
+## Plataforma 
+ - Vite JS - 3.1.0
