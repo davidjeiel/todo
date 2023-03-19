@@ -53,7 +53,7 @@ export default function Login()
     }
     if (user) {
       return (
-        <Navigate to="T" />
+        <Navigate to="../" />
       );
     }
 
