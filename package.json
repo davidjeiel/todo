@@ -6,7 +6,7 @@
   "homepage": "https://davidjeiel.github.io/todo/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "react-scripts build && mv build/* ./public",
     "preview": "vite preview"
   },
   "dependencies": {
