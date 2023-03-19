@@ -7,8 +7,6 @@ import {
   Route, 
   Routes 
 } from "react-router-dom";
-// import { PrivateRoutes } from './PrivateRoute';
-// import { authMailPassProvider as Provider } from '../contexts/authMailPassContext';
 
 export const RoutesApp = () => {
   return (
@@ -19,9 +17,6 @@ export const RoutesApp = () => {
             <Route path="/"      element={ <Panel /> }/>
             <Route path="/Login" element={ <Login /> }/>
             <Route path="/Logon" element={ <Logon /> }/>
-            {/* <Route element={<PrivateRoutes /> }>
-              <Route path="/home" element={<TaskList />} />
-            </Route>             */}
           </Routes>
         </Fragment>
       </BrowserRouter>

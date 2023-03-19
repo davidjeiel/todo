@@ -1,4 +1,4 @@
-import { BG, Container, Spacer, Button, Input, BlurCard } from "../../styles";
+import { BG, Button, Input, BlurCard } from "../../styles";
 import { useEffect, useState } from "react";
 import { auth } from "../../config/FirebaseConfig";
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -91,14 +91,7 @@ export default function Login()
                             >
                                 ACESSAR
 
-                            </Button> 
-                            {/* <Button 
-                                width="100%" 
-                                onClick={loginWithGoogle}
-                            >
-                                ACESSAR COM GOOGLE
-
-                            </Button>  */}                                        
+                            </Button>                                      
                             <Link to="/Logon">
                                 Novo cadastro
                             </Link>
